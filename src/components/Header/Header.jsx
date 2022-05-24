@@ -6,8 +6,6 @@ import Navigation from '../Navigation/Navigation';
 const links = [
   { title: 'Prisijungti', link: '/login' },
   { title: 'Registruotis', link: '/register' },
-  { title: 'My list', link: '/' },
-  { title: 'Add', link: '/add' },
 ];
 
 const Header = ({ children }) => {

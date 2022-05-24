@@ -1,7 +1,40 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import Header from '../components/Header/Header';
+import ServicesList from '../components/ServicesList/ServicesList';
+
+const getData = async () => {
+  console.log('getData start===', getData);
+  try {
+    const res = await fetch(`${process.env.REACT_APP_BASE_URL}/v1/services`, {
+      headers: {
+        authorization: `Bearer: ${localStorage.getItem('token')}`,
+      },
+    });
+    const data = await res.json();
+    console.log('data ===', data);
+    return data;
+  } catch (error) {
+    return error;
+  }
+};
 
 const Home = () => {
-  return <div>Home</div>;
+  const [data, setData] = useState([]);
+  useEffect(
+    () => async () => {
+      setData(await getData());
+    },
+    []
+  );
+
+  return (
+    <>
+      <Header>VK Studija</Header>
+      {data.length > 0 && (
+        <ServicesList services={data} handleClick={(id) => alert(id)} />
+      )}
+    </>
+  );
 };
 
 export default Home;
