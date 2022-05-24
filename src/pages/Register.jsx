@@ -35,12 +35,12 @@ const Register = () => {
       alert(data.msg || data.err || 'Nežinoma klaida');
       if (
         data.msg === 'Incorrect validation data. Please check input fields' ||
-        data.err ||
-        'Nežinoma klaida'
+        data.error
       ) {
-        return navigate('/register');
+        return;
+      } else {
+        navigate('/login');
       }
-      navigate('/login');
     } catch (error) {
       alert(error.message || 'Nenumatyta klaida');
     }
