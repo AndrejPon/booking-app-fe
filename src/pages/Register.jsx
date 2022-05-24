@@ -7,6 +7,9 @@ import InputField from '../components/InputField/InputField';
 
 const Register = () => {
   const [userDetails, setUserDetails] = useState({
+    first_name: '',
+    last_name: '',
+    phone_number: '',
     email: '',
     password: '',
   });
@@ -27,7 +30,16 @@ const Register = () => {
         }
       );
       const data = await res.json();
+
+      console.log(data);
       alert(data.msg || data.err || 'Nežinoma klaida');
+      if (
+        data.msg === 'Incorrect validation data. Please check input fields' ||
+        data.err ||
+        'Nežinoma klaida'
+      ) {
+        return navigate('/register');
+      }
       navigate('/login');
     } catch (error) {
       alert(error.message || 'Nenumatyta klaida');
@@ -40,12 +52,48 @@ const Register = () => {
       <Container>
         <form onSubmit={onRegister}>
           <InputField
+            name='first-name'
+            placeholder='Vardas'
+            label='Vardas'
+            type='text'
+            handleChange={(value) =>
+              setUserDetails({ ...userDetails, first_name: value })
+            }
+          />
+          <InputField
+            name='last-name'
+            placeholder='Pavardė'
+            label='Pavardė'
+            type='text'
+            handleChange={(value) =>
+              setUserDetails({ ...userDetails, last_name: value })
+            }
+          />
+          <InputField
+            name='phone-number'
+            placeholder='370xxxxxxxx'
+            label='Telefono numeris'
+            type='tel'
+            handleChange={(value) =>
+              setUserDetails({ ...userDetails, phone_number: value })
+            }
+          />
+          <InputField
             name='email'
             placeholder='pastas@pastas.lt'
             label='El. pašto adresas'
             type='email'
             handleChange={(value) =>
               setUserDetails({ ...userDetails, email: value })
+            }
+          />
+          <InputField
+            name='password'
+            placeholder='Slaptažodis'
+            label='Slaptažodis'
+            type='password'
+            handleChange={(value) =>
+              setUserDetails({ ...userDetails, password: value })
             }
           />
           <Button>Registruotis</Button>
