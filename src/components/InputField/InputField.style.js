@@ -3,16 +3,18 @@ import styled from 'styled-components';
 export const InputContainer = styled.div``;
 
 export const InputField = styled.input`
-  background: lightblue;
+  background: lightskyblue;
+  border-radius: 1rem;
   border: none;
-  width: 100%;
   height: 1.5rem;
   margin: 0.5rem 0;
-  border-radius: 1rem;
   padding: 0.5rem 1rem;
+  width: 100%;
 `;
 
 export const Label = styled.label`
   color: blue;
   font-size: 0.9rem;
+  font-weight: bold;
+  padding-left: 1rem;
 `;

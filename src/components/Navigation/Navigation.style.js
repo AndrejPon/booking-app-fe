@@ -9,5 +9,5 @@ export const Nav = styled.div`
 export const StyledLink = styled(Link)`
   text-decoration: none;
   font-size: 1rem;
-  color: antiquewhite;
+  color: darkblue;
 `;

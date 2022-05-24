@@ -11,4 +11,5 @@ export const Header = styled.div`
   line-height: 5rem;
   padding: 0 1rem;
   text-align: center;
+  color: darkblue;
 `;
