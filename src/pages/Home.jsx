@@ -3,7 +3,6 @@ import Header from '../components/Header/Header';
 import ServicesList from '../components/ServicesList/ServicesList';
 
 const getData = async () => {
-  console.log('getData start===', getData);
   try {
     const res = await fetch(`${process.env.REACT_APP_BASE_URL}/v1/services`, {
       headers: {
@@ -11,7 +10,6 @@ const getData = async () => {
       },
     });
     const data = await res.json();
-    console.log('data ===', data);
     return data;
   } catch (error) {
     return error;

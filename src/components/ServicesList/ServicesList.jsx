@@ -2,6 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import * as S from './ServicesList.style';
 import Service from '../Service/Service';
+import Button from '../Button/Button';
+import Image from '../../assets/images/VK.webp';
 
 const ServicesList = ({ services, handleClick }) => {
   return (
@@ -9,9 +11,11 @@ const ServicesList = ({ services, handleClick }) => {
       {services &&
         services.map((service) => (
           <Service key={service.id} handleClick={() => handleClick(service.id)}>
-            {service.name}
-            {service.duration}
-            {service.price}
+            <S.ServiceName>{`${service.name}`}</S.ServiceName>
+            <S.ServiceImage src={Image} alt='Image' />
+            <S.ServiceDuration>{`Trukmė: ${service.duration}`}</S.ServiceDuration>
+            <S.ServicePrice>{`Kaina: ${service.price}.00€`}</S.ServicePrice>
+            <Button>Užsakyti</Button>
           </Service>
         ))}
     </S.ServicesList>
