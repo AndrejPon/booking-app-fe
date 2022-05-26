@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 import Header from '../components/Header/Header';
 import ServicesList from '../components/ServicesList/ServicesList';
 
@@ -27,7 +28,11 @@ const Home = () => {
 
   return (
     <>
-      <Header>VK Studija</Header>
+      <Header>
+        <Link to='/' className='home-link'>
+          VK Studija
+        </Link>
+      </Header>
       {data.length > 0 && (
         <ServicesList services={data} handleClick={(id) => alert(id)} />
       )}

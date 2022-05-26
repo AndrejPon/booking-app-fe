@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import Button from '../components/Button/Button';
 import Container from '../components/Container/Container';
 import Header from '../components/Header/Header';
@@ -47,7 +47,12 @@ const Login = () => {
 
   return (
     <>
-      <Header>VK Studija</Header>
+      <Header>
+        {' '}
+        <Link to='/' className='home-link'>
+          VK Studija
+        </Link>
+      </Header>
       <Container>
         <form onSubmit={onLogin}>
           <InputField

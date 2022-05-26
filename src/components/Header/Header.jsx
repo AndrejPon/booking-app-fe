@@ -4,8 +4,10 @@ import * as S from './Header.style';
 import Navigation from '../Navigation/Navigation';
 
 const links = [
+  { title: 'Pradžia', link: '/' },
   { title: 'Prisijungti', link: '/login' },
   { title: 'Registruotis', link: '/register' },
+  { title: 'Mano užsakymai', link: '/orders' },
 ];
 
 const Header = ({ children }) => {
