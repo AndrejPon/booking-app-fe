@@ -31,10 +31,9 @@ const Register = () => {
       );
       const data = await res.json();
 
-      console.log(data);
       alert(data.msg || data.err || 'Nežinoma klaida');
       if (
-        data.msg === 'Incorrect validation data. Please check input fields' ||
+        data.msg === 'Neteisingi duomenys. Patikrinkite įvesties laukus.' ||
         data.error
       ) {
         return;

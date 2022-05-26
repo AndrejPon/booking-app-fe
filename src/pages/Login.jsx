@@ -28,10 +28,9 @@ const Login = () => {
       );
       const data = await res.json();
       if (!data.token) {
-        return alert(data.msg || 'Nežinoma klaida');
+        return alert(data.error || data.msg || 'Nežinoma klaida');
       }
       localStorage.setItem('token', data.token);
-      console.log(data);
       alert(data.msg || data.error || 'Nežinoma klaida');
       if (
         data.msg === 'Incorrect validation data. Please check input fields' ||

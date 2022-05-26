@@ -6,10 +6,13 @@ export const ServicesList = styled.div`
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   column-gap: 1rem;
+  row-gap: 1rem;
 `;
 
 export const ServiceName = styled.h3`
   text-align: center;
+  height: 2.5rem;
+  font-family: Arial, Helvetica, sans-serif;
 `;
 
 export const ServiceDuration = styled.p``;
