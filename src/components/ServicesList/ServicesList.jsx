@@ -14,7 +14,7 @@ const ServicesList = ({ services, handleClick }) => {
             <S.ServiceImage src={service.image} alt='Image' />
             <S.ServiceDuration>{`Trukmė: ${service.duration}`}</S.ServiceDuration>
             <S.ServicePrice>{`Kaina: ${service.price}.00€`}</S.ServicePrice>
-            <Button>Užsakyti</Button>
+            <Button handleClick={handleClick}>Užsakyti</Button>
           </Service>
         ))}
     </S.ServicesList>
