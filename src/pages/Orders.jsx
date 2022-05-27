@@ -17,35 +17,36 @@ const getData = async () => {
   }
 };
 
-const Home = () => {
+const Orders = () => {
   const [data, setData] = useState([]);
+  const [reload, setReload] = useState();
 
   useEffect(
     () => async () => {
       setData(await getData());
     },
-    []
+    [reload]
   );
-  const deleteOrder = async (event) => {
-    // console.log('deleteOrder ===', deleteOrder);
-    event.preventDefault();
-    // setLoading(true);
+  const deleteOrder = async (id) => {
     try {
-      const res = await fetch(`${process.env.REACT_APP_BASE_URL}/v1/orders`, {
-        method: 'POST',
-        headers: {
-          authorization: `Bearer: ${localStorage.getItem('token')}`,
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(),
-      });
+      const res = await fetch(
+        `${process.env.REACT_APP_BASE_URL}/v1/orders/${id}`,
+        {
+          method: 'DELETE',
+          headers: {
+            authorization: `Bearer: ${localStorage.getItem('token')}`,
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(),
+        }
+      );
       const data = await res.json();
 
-      // setReload(!reload);
+      setReload(!reload);
 
-      alert(data.msg || data.err || 'Unknown error');
+      alert(data.error || 'Jūsų užsakymas atšauktas.');
     } catch (error) {
-      alert(error.message || 'Unexpected error');
+      alert(error.message || 'Nenumatyta klaida');
     }
   };
 
@@ -56,11 +57,12 @@ const Home = () => {
           VK Studija
         </Link>
       </Header>
+      {data.length === 0 && <div>Jūsų užsakymų krepšelis dar tuščias...</div>}
       {data.length > 0 && (
-        <OrdersList orders={data} handleClick={deleteOrder} />
+        <OrdersList orders={data} handleClick={(id) => deleteOrder(id)} />
       )}
     </>
   );
 };
 
-export default Home;
+export default Orders;

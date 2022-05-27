@@ -13,7 +13,7 @@ const OrdersList = ({ orders, handleClick }) => {
             <S.ServiceName>{`${order.service_name}`}</S.ServiceName>
             <S.ServiceDuration>{`Trukmė: ${order.service_duration}`}</S.ServiceDuration>
             <S.ServicePrice>{`Kaina: ${order.service_price}.00€`}</S.ServicePrice>
-            <Button handleClick={handleClick}>Atšaukti</Button>
+            <Button handleClick={() => handleClick(order.id)}>Atšaukti</Button>
           </Order>
         ))}
     </S.OrdersList>

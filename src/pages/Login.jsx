@@ -33,7 +33,7 @@ const Login = () => {
       localStorage.setItem('token', data.token);
       alert(data.msg || data.error || 'Nežinoma klaida');
       if (
-        data.msg === 'Incorrect validation data. Please check input fields' ||
+        data.msg === 'Neteisingi duomenys. Patikrinkite įvesties laukus.' ||
         data.error
       ) {
         return;

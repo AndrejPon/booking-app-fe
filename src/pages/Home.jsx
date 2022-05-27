@@ -29,25 +29,24 @@ const Home = () => {
     []
   );
 
-  const addOrder = async (event) => {
-    // console.log('addOrder ===', addOrder);
-    event.preventDefault();
-    // setLoading(true);
+  const addOrder = async (id) => {
     try {
-      const res = await fetch(`${process.env.REACT_APP_BASE_URL}/v1/orders`, {
-        method: 'POST',
-        headers: {
-          authorization: `Bearer: ${localStorage.getItem('token')}`,
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ newOrder }),
-      });
+      const res = await fetch(
+        `${process.env.REACT_APP_BASE_URL}/v1/orders/${id}`,
+        {
+          method: 'POST',
+          headers: {
+            authorization: `Bearer: ${localStorage.getItem('token')}`,
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({ newOrder }),
+        }
+      );
       const data = await res.json();
 
-      // setReload(!reload);
       setNewOrder('');
       navigate('/orders');
-      alert(data.msg || data.err || 'Unknown error');
+      alert(data.msg || data.error || 'Unknown error');
     } catch (error) {
       alert(error.message || 'Unexpected error');
     }
@@ -61,7 +60,7 @@ const Home = () => {
         </Link>
       </Header>
       {data.length > 0 && (
-        <ServicesList services={data} handleClick={addOrder} />
+        <ServicesList services={data} handleClick={(id) => addOrder(id)} />
       )}
     </>
   );
