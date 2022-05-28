@@ -6,4 +6,13 @@ export default {
   component: Button,
 };
 
-export const Default = () => <Button>Registruotis</Button>;
+export const Default = () => (
+  <Button size='lg' bgcolor='green' color='blue'>
+    Registruotis
+  </Button>
+);
+export const Secondary = () => (
+  <Button size='md' bgcolor='red' color='white'>
+    Registruotis
+  </Button>
+);

@@ -1,18 +1,18 @@
 import styled from 'styled-components';
 
 export const ServicesList = styled.div`
-  max-width: 900px;
-  margin: 1rem auto;
+  column-gap: 1rem;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
-  column-gap: 1rem;
+  margin: 1rem auto;
+  max-width: 900px;
   row-gap: 1rem;
 `;
 
 export const ServiceName = styled.h3`
-  text-align: center;
-  height: 2.5rem;
   font-family: Arial, Helvetica, sans-serif;
+  height: 2.5rem;
+  text-align: center;
 `;
 
 export const ServiceDuration = styled.p``;

@@ -100,7 +100,11 @@ const Register = () => {
               setUserDetails({ ...userDetails, password: value })
             }
           />
-          <Button>Registruotis</Button>
+          <Button size='md' color='blue' bgcolor='green'>
+            Registruotis
+          </Button>
+          &nbsp;Registruotas vartotojas?&nbsp;
+          <Link to='/login'>Prisijungti</Link>
         </form>
       </Container>
     </>

@@ -1,13 +1,14 @@
 import styled from 'styled-components';
 
 export const Button = styled.button`
-  background: lightgreen;
+  background: ${(props) => (props.bgcolor === 'green' ? 'lightgreen' : 'red')};
   border-radius: 1.5rem;
-  cursor: pointer;
-  padding: 0.8rem;
-  color: blueviolet;
-  font-weight: bold;
   border: none;
   box-shadow: 5px 5px 5px gray;
-  margin-top: 1rem;
+  color: ${(props) => (props.color === 'blue' ? 'blueviolet' : 'white')};
+  cursor: pointer;
+  font-weight: bold;
+  min-width: ${(props) => (props.size === 'lg' ? '100%' : '10%')};
+  height: 3rem;
+  padding: 0.8rem;
 `;

@@ -38,7 +38,7 @@ const Login = () => {
       ) {
         return;
       } else {
-        navigate('/');
+        navigate('/orders');
       }
     } catch (error) {
       alert(error.message || 'Nenumatyta klaida');
@@ -48,7 +48,6 @@ const Login = () => {
   return (
     <>
       <Header>
-        {' '}
         <Link to='/' className='home-link'>
           VK Studija
         </Link>
@@ -73,7 +72,11 @@ const Login = () => {
               setUserDetails({ ...userDetails, password: value })
             }
           />
-          <Button>Prisijungti</Button>
+          <Button size='md' color='blue' bgcolor='green'>
+            Prisijungti
+          </Button>
+          &nbsp;Neregistruotas vartotojas?&nbsp;
+          <Link to='/register'>Registruotis</Link>
         </form>
       </Container>
     </>

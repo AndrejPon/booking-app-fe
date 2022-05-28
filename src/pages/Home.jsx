@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
+import Container from '../components/Container/Container';
 import Header from '../components/Header/Header';
 import ServicesList from '../components/ServicesList/ServicesList';
 
@@ -59,8 +60,10 @@ const Home = () => {
           VK Studija
         </Link>
       </Header>
-      {data.length > 0 && (
+      {data.length ? (
         <ServicesList services={data} handleClick={(id) => addOrder(id)} />
+      ) : (
+        <Container>Loading...</Container>
       )}
     </>
   );

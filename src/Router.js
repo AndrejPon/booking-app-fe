@@ -1,5 +1,6 @@
 import React from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import ProtectedRoute from './components/ProtectedRoute/ProtectedRoute';
 import Home from './pages/Home';
 import Login from './pages/Login';
 import Orders from './pages/Orders';
@@ -12,7 +13,14 @@ const Router = () => {
         <Route path='/' element={<Home />} />
         <Route path='/register' element={<Register />} />
         <Route path='/login' element={<Login />} />
-        <Route path='/orders' element={<Orders />} />
+        <Route
+          path='/orders'
+          element={
+            <ProtectedRoute>
+              <Orders />
+            </ProtectedRoute>
+          }
+        />
         <Route path='/orders/:id' element={<Orders />} />
       </Routes>
     </BrowserRouter>

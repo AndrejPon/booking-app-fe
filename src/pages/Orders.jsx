@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import Button from '../components/Button/Button';
+import Container from '../components/Container/Container';
 import Header from '../components/Header/Header';
 import OrdersList from '../components/OrdersList/OrdersList';
 
@@ -11,6 +13,7 @@ const getData = async () => {
       },
     });
     const data = await res.json();
+
     return data;
   } catch (error) {
     return error;
@@ -20,6 +23,7 @@ const getData = async () => {
 const Orders = () => {
   const [data, setData] = useState([]);
   const [reload, setReload] = useState();
+  const navigate = useNavigate();
 
   useEffect(
     () => async () => {
@@ -27,6 +31,12 @@ const Orders = () => {
     },
     [reload]
   );
+
+  const logout = () => {
+    localStorage.removeItem('token');
+    navigate('/login');
+  };
+
   const deleteOrder = async (id) => {
     try {
       const res = await fetch(
@@ -56,10 +66,21 @@ const Orders = () => {
         <Link to='/' className='home-link'>
           VK Studija
         </Link>
+        <Button size='md' handleClick={logout}>
+          Atsijungti
+        </Button>
       </Header>
-      {data.length === 0 && <div>Jūsų užsakymų krepšelis dar tuščias...</div>}
-      {data.length > 0 && (
-        <OrdersList orders={data} handleClick={(id) => deleteOrder(id)} />
+
+      {!data.length ? (
+        <Container>
+          Jūsų užsakymų krepšelis dar tuščias.&nbsp;
+          <Link to='/'>Pridėkite užsakymą.</Link>
+        </Container>
+      ) : (
+        <>
+          <Container>Mano užsakymai</Container>
+          <OrdersList orders={data} handleClick={(id) => deleteOrder(id)} />
+        </>
       )}
     </>
   );

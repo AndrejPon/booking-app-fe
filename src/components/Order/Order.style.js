@@ -5,6 +5,9 @@ export const Order = styled.div`
   border-radius: 1rem;
   box-shadow: 5px 5px 5px gray;
   display: flex;
-  flex-direction: column;
-  padding: 0 1rem 1rem 1rem;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0rem 1rem 0rem 1rem;
+  height: 5rem;
 `;
