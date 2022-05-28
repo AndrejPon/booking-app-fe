@@ -47,11 +47,8 @@ const Login = () => {
 
   return (
     <>
-      <Header>
-        <Link to='/' className='home-link'>
-          VK Studija
-        </Link>
-      </Header>
+      <Header />
+
       <Container>
         <form onSubmit={onLogin}>
           <InputField

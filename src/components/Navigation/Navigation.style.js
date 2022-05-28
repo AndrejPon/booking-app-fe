@@ -10,4 +10,9 @@ export const StyledLink = styled(Link)`
   text-decoration: none;
   font-size: 1rem;
   color: darkblue;
+  &:hover {
+    color: white;
+    border-bottom: 1px solid white;
+    transition: 0.3s;
+  }
 `;

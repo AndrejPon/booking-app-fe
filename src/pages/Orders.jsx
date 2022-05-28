@@ -63,9 +63,6 @@ const Orders = () => {
   return (
     <>
       <Header>
-        <Link to='/' className='home-link'>
-          VK Studija
-        </Link>
         <Button size='md' handleClick={logout}>
           Atsijungti
         </Button>

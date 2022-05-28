@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
 export const Header = styled.div`
@@ -12,4 +13,11 @@ export const Header = styled.div`
   padding: 0 1rem;
   text-align: center;
   color: darkblue;
+`;
+
+export const Logo = styled.img`
+  height: inherit;
+`;
+export const StyledLink = styled(Link)`
+  height: inherit;
 `;

@@ -47,12 +47,8 @@ const Register = () => {
 
   return (
     <>
-      <Header>
-        {' '}
-        <Link to='/' className='home-link'>
-          VK Studija
-        </Link>
-      </Header>
+      <Header />
+
       <Container>
         <form onSubmit={onRegister}>
           <InputField

@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import * as S from './Header.style';
 import Navigation from '../Navigation/Navigation';
+import Logo from '../../assets/images/Logo.png';
 
 const links = [
   { title: 'Pradžia', link: '/' },
@@ -13,6 +14,10 @@ const links = [
 const Header = ({ children }) => {
   return (
     <S.Header>
+      <S.StyledLink to='/'>
+        <S.Logo src={Logo} alt='Logo' />
+      </S.StyledLink>
+
       {children}
       <Navigation links={links} />
     </S.Header>
