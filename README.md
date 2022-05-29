@@ -38,13 +38,13 @@ On the same page customer can cancell order.
 
 To run this project, you will need to add the following environment variables to your .env file
 
-`REACT_APP_BASE_URL`
+`REACT_APP_BASE_URL=`
 
 ## Future development
 
 - Add date and time picker for orders;
 - Add availabe date and time slots;
-- Admin dashbord with possibility to add, approve/reject services
+- Add admin dashbord with possibility to add, approve/reject services
 
 ## Author
 
