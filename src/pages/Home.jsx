@@ -25,21 +25,21 @@ const Home = () => {
   const [newOrder, setNewOrder] = useState('');
   const navigate = useNavigate();
 
-  const notify = () => {
-    toast(toast.warn(), {
-      onOpen: () =>
-        toast.warn(
-          data.msg ||
-            'Norėdami testi, prisijunkite' ||
-            data.error ||
-            'Unknown error',
-          {
-            position: toast.POSITION.TOP_CENTER,
-          }
-        ),
-      onClose: () => navigate('/orders'),
-    });
-  };
+  // const notify = () => {
+  //   toast(toast.warn(), {
+  //     onOpen: () =>
+  //       toast.warn(
+  //         data.msg ||
+  //           'Norėdami testi, prisijunkite' ||
+  //           data.error ||
+  //           'Unknown error',
+  //         {
+  //           position: toast.POSITION.TOP_CENTER,
+  //         }
+  //       ),
+  //     onClose: () => navigate('/orders'),
+  //   });
+  // };
   // toast.error('Error Notification !', {
   //   position: toast.POSITION.TOP_LEFT,
   // });
@@ -68,7 +68,7 @@ const Home = () => {
 
       setNewOrder('');
       // notify();
-      // navigate('/orders');
+      navigate('/orders');
       // toast.warn(
       //   data.msg ||
       //     'Norėdami testi, prisijunkite' ||
@@ -93,7 +93,7 @@ const Home = () => {
   return (
     <>
       <Header />
-      <ToastContainer />
+      {/* <ToastContainer /> */}
       {data.length ? (
         <ServicesList services={data} handleClick={(id) => addOrder(id)} />
       ) : (
