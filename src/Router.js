@@ -3,6 +3,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import ProtectedRoute from './components/ProtectedRoute/ProtectedRoute';
 import Home from './pages/Home';
 import Login from './pages/Login';
+import NotFound from './pages/NotFound';
 import Orders from './pages/Orders';
 import Register from './pages/Register';
 
@@ -10,10 +11,11 @@ const Router = () => {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path='/' element={<Home />} />
-        <Route path='/register' element={<Register />} />
-        <Route path='/login' element={<Login />} />
+        <Route exact path='/' element={<Home />} />
+        <Route exact path='/register' element={<Register />} />
+        <Route exact path='/login' element={<Login />} />
         <Route
+          exact
           path='/orders'
           element={
             <ProtectedRoute>
@@ -21,7 +23,8 @@ const Router = () => {
             </ProtectedRoute>
           }
         />
-        <Route path='/orders/:id' element={<Orders />} />
+        <Route exact path='/orders/:id' element={<Orders />} />
+        <Route path='*' element={<NotFound />} />
       </Routes>
     </BrowserRouter>
   );

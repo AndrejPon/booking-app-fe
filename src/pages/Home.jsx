@@ -67,7 +67,7 @@ const Home = () => {
       const data = await res.json();
 
       setNewOrder('');
-      notify();
+      // notify();
       // navigate('/orders');
       // toast.warn(
       //   data.msg ||
