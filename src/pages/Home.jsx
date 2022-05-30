@@ -15,7 +15,7 @@ const Home = () => {
       const res = await fetch(`${process.env.REACT_APP_BASE_URL}/v1/services`);
       const data = await res.json();
       setData(data);
-      // return data;
+      return data;
     } catch (error) {
       return error;
     }
