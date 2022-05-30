@@ -33,6 +33,10 @@ or
 
 https://master.d2wxq7e0vc1o2.amplifyapp.com/
 
+## GiHub repository
+
+https://github.com/AndrejPon/booking-app-fe
+
 ## Dependencies
 
 `react: ^18.1.0`
