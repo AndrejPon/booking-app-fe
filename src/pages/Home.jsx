@@ -5,28 +5,25 @@ import Header from '../components/Header/Header';
 import ServicesList from '../components/ServicesList/ServicesList';
 import 'react-toastify/dist/ReactToastify.min.css';
 
-const getData = async () => {
-  try {
-    const res = await fetch(`${process.env.REACT_APP_BASE_URL}/v1/services`, {
-      headers: {
-        authorization: `Bearer: ${localStorage.getItem('token')}`,
-      },
-    });
-    const data = await res.json();
-    return data;
-  } catch (error) {
-    return error;
-  }
-};
-
 const Home = () => {
   const [data, setData] = useState([]);
   const [newOrder, setNewOrder] = useState('');
   const navigate = useNavigate();
 
+  const getData = async () => {
+    try {
+      const res = await fetch(`${process.env.REACT_APP_BASE_URL}/v1/services`);
+      const data = await res.json();
+      setData(data);
+      // return data;
+    } catch (error) {
+      return error;
+    }
+  };
+
   useEffect(
     () => async () => {
-      getData(setData());
+      getData();
     },
     []
   );
