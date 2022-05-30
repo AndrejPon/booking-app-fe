@@ -12,8 +12,10 @@ const Home = () => {
   const navigate = useNavigate();
 
   const getData = async () => {
+    console.log('getData starts');
     try {
       const res = await fetch(`${process.env.REACT_APP_BASE_URL}/v1/services`);
+      console.log('res ===', res);
       const data = await res.json();
       console.log('data ===', data);
       setData(data);
