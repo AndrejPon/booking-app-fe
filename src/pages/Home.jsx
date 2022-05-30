@@ -26,7 +26,7 @@ const Home = () => {
 
   useEffect(
     () => async () => {
-      setData(await getData());
+      getData(await setData());
     },
     []
   );
