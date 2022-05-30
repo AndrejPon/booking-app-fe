@@ -7,6 +7,9 @@ export const ServicesList = styled.div`
   margin: 1rem auto;
   max-width: 900px;
   row-gap: 1rem;
+  @media screen and (max-width: 600px) {
+    grid-template-columns: 1fr;
+  }
 `;
 
 export const ServiceName = styled.h3`
