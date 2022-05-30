@@ -26,12 +26,9 @@ const Home = () => {
     }
   };
 
-  useEffect(
-    () => async () => {
-      getData();
-    },
-    []
-  );
+  useEffect(() => {
+    getData();
+  }, []);
   console.log('useEffect===', useEffect);
 
   const addOrder = async (id) => {
