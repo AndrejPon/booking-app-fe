@@ -7,17 +7,13 @@ import 'react-toastify/dist/ReactToastify.min.css';
 
 const Home = () => {
   const [data, setData] = useState([]);
-  console.log('UseStatedata ===', data);
   const [newOrder, setNewOrder] = useState('');
   const navigate = useNavigate();
 
   const getData = async () => {
-    console.log('getData starts');
     try {
       const res = await fetch(`${process.env.REACT_APP_BASE_URL}/v1/services`);
-      console.log('res ===', res);
       const data = await res.json();
-      console.log('data ===', data);
       setData(data);
 
       return data;
@@ -29,7 +25,6 @@ const Home = () => {
   useEffect(() => {
     getData();
   }, []);
-  console.log('useEffect===', useEffect);
 
   const addOrder = async (id) => {
     try {
