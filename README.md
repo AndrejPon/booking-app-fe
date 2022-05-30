@@ -25,6 +25,14 @@ User can register on /register page and login on /login page.
 After registration and login user will be able to order intended service and will be redirected to /orders page, where he/she can see ordered services list.
 On the same page customer can cancell order.
 
+## Demo
+
+https://vk-studija-fe-ovoy3.ondigitalocean.app/
+
+or
+
+https://master.d2wxq7e0vc1o2.amplifyapp.com/
+
 ## Dependencies
 
 `react: ^18.1.0`
@@ -44,7 +52,8 @@ To run this project, you will need to add the following environment variables to
 
 - Add date and time picker for orders;
 - Add availabe date and time slots;
-- Add admin dashbord with possibility to add, approve/reject services
+- Add admin dashboard with possibility to add, approve/reject services;
+- Modify for mobile friendly version.
 
 ## Author
 
