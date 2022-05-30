@@ -5,32 +5,29 @@ import Container from '../components/Container/Container';
 import Header from '../components/Header/Header';
 import OrdersList from '../components/OrdersList/OrdersList';
 
-const getData = async () => {
-  try {
-    const res = await fetch(`${process.env.REACT_APP_BASE_URL}/v1/orders`, {
-      headers: {
-        authorization: `Bearer: ${localStorage.getItem('token')}`,
-      },
-    });
-    const data = await res.json();
-
-    return data;
-  } catch (error) {
-    return error;
-  }
-};
-
 const Orders = () => {
   const [data, setData] = useState([]);
   const [reload, setReload] = useState();
   const navigate = useNavigate();
 
-  useEffect(
-    () => async () => {
-      setData(await getData());
-    },
-    [reload]
-  );
+  const getData = async () => {
+    try {
+      const res = await fetch(`${process.env.REACT_APP_BASE_URL}/v1/orders`, {
+        headers: {
+          authorization: `Bearer: ${localStorage.getItem('token')}`,
+        },
+      });
+      const data = await res.json();
+      setData(data);
+      return data;
+    } catch (error) {
+      return error;
+    }
+  };
+
+  useEffect(() => {
+    getData();
+  }, [reload]);
 
   const logout = () => {
     localStorage.removeItem('token');
